@@ -83,12 +83,12 @@ class CaesarCipher:
 
 
 # Example usage
-plain_text = "The way of the dragon."
+plain_text    = "The way of the dragon."
 caesar_cipher = CaesarCipher()
+caesar_cipher.set_shift("b")
 
 # Encrypt
 caesar_cipher.set_text(plain_text)
-caesar_cipher.set_shift("b")
 cipher_text = caesar_cipher.translate()
 
 # Decrypt
