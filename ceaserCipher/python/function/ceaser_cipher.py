@@ -55,7 +55,7 @@ def translate(func, shift_letter, text):
     'Hello, World!'
 
     """
-    translated_list = []
+    translated_text = []
     translated_char = ""
 
     for char in text:
@@ -66,10 +66,10 @@ def translate(func, shift_letter, text):
 
         # preserve the state of the original character
         if char.islower():
-            translated_list.append(translated_char.lower())
+            translated_text.append(translated_char.lower())
         else:
-            translated_list.append(translated_char.upper())
-    return "".join(translated_list)
+            translated_text.append(translated_char.upper())
+    return "".join(translated_text)
 
 
 def get_shift_letter_index(shift_letter):
