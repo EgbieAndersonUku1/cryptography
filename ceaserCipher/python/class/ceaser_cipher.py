@@ -49,7 +49,7 @@ class CaesarCipher:
             translated_char = self._translate_char(char, mode)
 
             # maintain the original capital or lowercase for the word
-            [translated_text.lower() if char.islower() else translated_char.upper()]
+         
             if char.islower():
                 translated_text.append(translated_char.lower())
             else:
