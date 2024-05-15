@@ -75,9 +75,9 @@ class CaesarCipher:
             raise Exception("The encryption must be either decrypt or encrypt!!!")
         elif char_index == NOT_FOUND:
             return char
-        elif mode == "encrypt":
+        elif mode.lower() == "encrypt":
             translated_char_index = (char_index + self._shift_letter_index) % len(ascii_letters)
-        elif mode == "decrypt":
+        elif mode.lower() == "decrypt":
             translated_char_index = (char_index - self._shift_letter_index) % len(ascii_letters)
         return ascii_letters[translated_char_index]
 
@@ -85,9 +85,18 @@ class CaesarCipher:
 # Example usage
 plain_text = "The way of the dragon."
 caesar_cipher = CaesarCipher()
+
+# Encrypt
 caesar_cipher.set_text(plain_text)
-caesar_cipher.set_shift("a")
+caesar_cipher.set_shift("b")
 cipher_text = caesar_cipher.translate()
 
+# Decrypt
+caesar_cipher.set_text(cipher_text)
+text = caesar_cipher.translate("decrypt")
+
+
+
 print(cipher_text)
+print(text)
 
