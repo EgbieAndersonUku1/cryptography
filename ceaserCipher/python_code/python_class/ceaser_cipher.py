@@ -1,11 +1,10 @@
-from string import ascii_letters
+from string import ascii_lowercase
 
 
 class CaesarCipher:
     """Class for performing encryption and decryption using Caesar cipher."""
 
     def __init__(self):
-        """Initialize CaesarCipher object."""
         self.text                = ""
         self.shift_letter        = ""
         self._shift_letter_index = ""
@@ -29,7 +28,7 @@ class CaesarCipher:
         self.shift_letter = shift_letter.lower()
 
         try:
-            self._shift_letter_index = ascii_letters.index(self.shift_letter.lower())
+            self._shift_letter_index = ascii_lowercase.index(self.shift_letter.lower())
         except ValueError:
             raise Exception("The shift letter must be a letter between A-Z")
 
@@ -68,7 +67,7 @@ class CaesarCipher:
         Returns:
             str: The translated character.
         """
-        char_index = ascii_letters.find(char.lower())
+        char_index = ascii_lowercase.find(char.lower())
         NOT_FOUND = -1
 
         if mode.lower() not in ["encrypt", "decrypt"]:
@@ -76,27 +75,27 @@ class CaesarCipher:
         elif char_index == NOT_FOUND:
             return char
         elif mode.lower() == "encrypt":
-            translated_char_index = (char_index + self._shift_letter_index) % len(ascii_letters)
+            translated_char_index = (char_index + self._shift_letter_index) % len(ascii_lowercase)
         elif mode.lower() == "decrypt":
-            translated_char_index = (char_index - self._shift_letter_index) % len(ascii_letters)
-        return ascii_letters[translated_char_index]
-
-
-# Example usage
-plain_text    = "The way of the dragon."
-caesar_cipher = CaesarCipher()
-caesar_cipher.set_shift("b")
-
-# Encrypt
-caesar_cipher.set_text(plain_text)
-cipher_text = caesar_cipher.translate()
-
-# Decrypt
-caesar_cipher.set_text(cipher_text)
-text = caesar_cipher.translate("decrypt")
+            translated_char_index = (char_index - self._shift_letter_index) % len(ascii_lowercase)
+        return ascii_lowercase[translated_char_index]
 
 
 
-print(cipher_text)
-print(text)
+if __name__ == "__main__":
+    # Example usage
+    plain_text    = "The way of the dragon."
+    caesar_cipher = CaesarCipher()
+    caesar_cipher.set_shift("b")
+
+    # Encrypt
+    caesar_cipher.set_text(plain_text)
+    cipher_text = caesar_cipher.translate()
+
+    # Decrypt
+    caesar_cipher.set_text(cipher_text)
+    text = caesar_cipher.translate("decrypt")
+
+    print(cipher_text)
+    print(text)
 

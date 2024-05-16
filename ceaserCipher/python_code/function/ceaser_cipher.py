@@ -1,4 +1,4 @@
-from string import ascii_letters
+from string import ascii_lowercase
 
 
 def encrypt(char, shift_letter):
@@ -14,7 +14,7 @@ def encrypt(char, shift_letter):
     """
     cipher_index = (
         get_shift_letter_index(char) + get_shift_letter_index(shift_letter)
-    ) % len(ascii_letters)
+    ) % len(ascii_lowercase)
     return to_letter(cipher_index)
 
 
@@ -31,7 +31,7 @@ def decrypt(char, shift_letter):
     """
     cipher_index = (
         get_shift_letter_index(char) - get_shift_letter_index(shift_letter)
-    ) % len(ascii_letters)
+    ) % len(ascii_lowercase)
     return to_letter(cipher_index)
 
 
@@ -91,7 +91,7 @@ def get_shift_letter_index(shift_letter):
     None
     """
     try:
-        return ascii_letters.index(shift_letter.lower())
+        return ascii_lowercase.index(shift_letter.lower())
     except ValueError:
         return None
 
@@ -115,7 +115,7 @@ def to_letter(shift_index):
     None
     """
     try:
-        return ascii_letters[shift_index]
+        return ascii_lowercase[shift_index]
     except IndexError:
         return None
 
