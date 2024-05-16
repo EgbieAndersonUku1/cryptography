@@ -84,13 +84,13 @@ class CeaserCipherBruteForcer:
            
             self._english_detector.set_text(decrypted_text)
 
-            found = self._english_detector.is_valid_english()
+            is_cipher_text_decrypter = self._english_detector.is_valid_english()
 
             if not silent:
-                self._display_text(show=silent, key=letter, text=decrypted_text, decrypted=found)
-            if found and silent:
+                self._display_text(show=silent, key=letter, text=decrypted_text, decrypted=is_cipher_text_decrypter)
+            if is_cipher_text_decrypter and silent:
                 return (letter.upper(), decrypted_text)
-            elif found and not silent:
+            elif is_cipher_text_decrypter and not silent:
                 return (letter.upper(), decrypted_text)
 
         return (-1, False)
