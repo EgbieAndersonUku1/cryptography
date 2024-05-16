@@ -14,7 +14,7 @@ class EnglishDetector(object):
         __init__(): Initializes the class attributes.
         load_dictionary(dictionary_path="dictionary.txt"): Loads a dictionary of English words from a file.
         set_text(text): Sets the text to be analyzed.
-        is_valid_english(word_percentage_match=20, letters_percentage_match=80):
+        is_valid_english(word_percentage_match=75):
             Determines if the text resembles English based on the percentage of English words and letters.
         _get_num_of_english_word_percentage(): Calculates the percentage of English words in the text.
     """
