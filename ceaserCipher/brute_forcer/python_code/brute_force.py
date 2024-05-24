@@ -76,10 +76,11 @@ class CeaserCipherBruteForcer:
         assert self.cipher_text, "The cipher text has not be set"
 
         self._english_detector.set_text(self.cipher_text)
+        self._ceaser_cipher.set_text(self.cipher_text)
 
         for letter in self._ALPHABET:
             self._ceaser_cipher.set_shift(letter)
-            self._ceaser_cipher.set_text(self.cipher_text)
+          
             decrypted_text = self._ceaser_cipher.translate("decrypt")
            
             self._english_detector.set_text(decrypted_text)
@@ -113,7 +114,7 @@ class CeaserCipherBruteForcer:
 text = """In fair Verona, where we lay our scene, From ancient grudge break to new mutiny, Where civil blood makes civil hands unclean, A pair of star-cross'd lovers take their life."""
 
 # set up the cipher
-shift_key = "w"
+shift_key = "x"
 ceaser_cipher = CaesarCipher()
 ceaser_cipher.set_shift(shift_key)
 ceaser_cipher.set_text(text)
